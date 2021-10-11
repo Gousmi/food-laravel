@@ -20,3 +20,5 @@ Route::get('{salutation}/{name}',[PageController::class, 'salutation' ])->where(
 // Recipes routes
 
 Route::get('recipes',[RecipeController::class, 'index']);  
+
+Route::get('master', function(){return view('layouts/master');});
