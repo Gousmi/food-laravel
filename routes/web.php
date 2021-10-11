@@ -15,10 +15,15 @@ use App\Http\Controllers\RecipeController;
 */
 
 Route::get('/', function () {return view('welcome');});
-Route::get('{salutation}/{name}',[PageController::class, 'salutation' ])->where(['salutation' => '[A-Za-z]+' , 'name' => '[A-Za-z]+']);
+// Route::get('{salutation}/{name}',[PageController::class, 'salutation' ])->where(['salutation' => '[A-Za-z]+' , 'name' => '[A-Za-z]+']);
 
 // Recipes routes
 
 Route::get('recipes',[RecipeController::class, 'index']);  
 
 Route::get('master', function(){return view('layouts/master');});
+
+Route::get('recipe/create', function(){return view('recipe/create');});
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
